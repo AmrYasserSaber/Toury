@@ -43,7 +43,7 @@ const Login = () => {
                 <p className="mt-2 text-center text-base text-gray-600">
                     Don&apos;t have any account?&nbsp;
                     <Link
-                        href="/src/components/Signup"
+                        href="/signup"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
                         Sign Up

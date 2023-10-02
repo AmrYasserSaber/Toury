@@ -1,19 +1,18 @@
 import conf from "@/conf/config";
-import {Client, Account, ID} from 'appwrite'
-
+import {Client, Account, ID, Databases} from 'appwrite'
 
 
 const appwriteClient = new Client()
-
 appwriteClient.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
 
 export const account = new Account(appwriteClient)
 
+export const database = new Databases(appwriteClient)
+
 export class AppwriteService {
     //create a new record of user inside appwrite
-    async createUserAccount({email, password, name}){
+    async createUserAccount({email, password, name}) {
         try {
-            console.log(process.env.NEXT_PUBLIC_APPWRITE_URL)
             const userAccount = await account.create(ID.unique(), email, password, name)
             if (userAccount) {
                 return this.login({email, password})
@@ -25,20 +24,20 @@ export class AppwriteService {
         }
     }
 
-    async login( { email, password }) {
-       try {
+    async login({email, password}) {
+        try {
             return await account.createEmailSession(email, password)
-       } catch (error) {
-         throw error
-       }
+        } catch (error) {
+            throw error
+        }
     }
 
-    async isLoggedIn(){
+    async isLoggedIn() {
         try {
             const data = await this.getCurrentUser();
             return Boolean(data)
-        } catch (error) {}
-
+        } catch (error) {
+        }
         return false
     }
 
@@ -47,7 +46,6 @@ export class AppwriteService {
             return account.get()
         } catch (error) {
             console.log("getcurrentUser error: " + error)
-
         }
 
         return null
@@ -61,7 +59,47 @@ export class AppwriteService {
         }
     }
 
+    async getCollection(collectionId) {
+        try {
+            return await database.listDocuments(collectionId)
+        } catch (error) {
+            console.log("getCollection error: " + error)
+        }
+    }
 
+    async getDocument(databaseID,collectionId, documentId) {
+        try {
+            console.log(await appwriteService.getCurrentUser())
+            return await database.getDocument(databaseID,collectionId, documentId)
+        }catch (error) {
+            console.log("getDocument error: " + error)
+        }
+    }
+
+
+    async createDocument(collectionId, data) {
+        try {
+            return await database.createDocument(collectionId, data)
+        } catch (error) {
+            console.log("createDocument error: " + error)
+        }
+    }
+
+    async updateDocument(collectionId, documentId, data) {
+        try {
+            return await database.updateDocument(collectionId, documentId, data)
+        } catch (error) {
+            console.log("updateDocument error: " + error)
+        }
+    }
+
+    async deleteDocument(collectionId, documentId) {
+        try {
+            return await database.deleteDocument(collectionId, documentId)
+        } catch (error) {
+            console.log("deleteDocument error: " + error)
+        }
+    }
 }
 
 const appwriteService = new AppwriteService()

@@ -7,7 +7,7 @@ import Avatar from "./Avatar";
 
 
 const ProfileCard= () => {
-    const [user, setUser] = useState;
+    const [user, setUser] = useState({ name: '', email: '' });
 
     useEffect(() => {
         (async () => {
