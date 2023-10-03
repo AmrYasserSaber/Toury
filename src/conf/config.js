@@ -1,7 +1,8 @@
 const conf = {
     appwriteUrl: String(process.env.NEXT_PUBLIC_APPWRITE_URL),
     appwriteProjectId: String(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID),
-    appwritePlantsId: String(process.env.NEXT_PUBLIC_APPWRITE_PLANETS_ID),
+    appwriteDatabaseId: String(process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID),
+    appwritePlanetsId: String(process.env.NEXT_PUBLIC_APPWRITE_PLANETS_ID),
     appwriteMoonsId: String(process.env.NEXT_PUBLIC_APPWRITE_MOONS_ID),
     appwritePlanetsContentId: String(process.env.NEXT_PUBLIC_APPWRITE_PLANETS_CONTENT_ID),
     appwriteMoonsContentId: String(process.env.NEXT_PUBLIC_APPWRITE_MOONS_CONTENT_ID),

@@ -59,9 +59,9 @@ export class AppwriteService {
         }
     }
 
-    async getCollection(collectionId) {
+    async getCollection(databaseID,collectionId) {
         try {
-            return await database.listDocuments(collectionId)
+            return await database.listDocuments(databaseID,collectionId)
         } catch (error) {
             console.log("getCollection error: " + error)
         }
@@ -69,7 +69,6 @@ export class AppwriteService {
 
     async getDocument(databaseID,collectionId, documentId) {
         try {
-            console.log(await appwriteService.getCurrentUser())
             return await database.getDocument(databaseID,collectionId, documentId)
         }catch (error) {
             console.log("getDocument error: " + error)
@@ -98,6 +97,20 @@ export class AppwriteService {
             return await database.deleteDocument(collectionId, documentId)
         } catch (error) {
             console.log("deleteDocument error: " + error)
+        }
+    }
+    async getCollectionDocuments(databaseId,collectionId) {
+        try {
+            return await database.listDocuments(databaseId,collectionId)
+        } catch (error) {
+            console.log("getCollectionDocuments error: " + error)
+        }
+    }
+    async getDatabase() {
+        try {
+            return await database.list();
+        } catch (error) {
+            console.log("getDatabase error: " + error)
         }
     }
 }

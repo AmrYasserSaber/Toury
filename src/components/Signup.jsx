@@ -18,10 +18,8 @@ const Signup = () => {
     const {setAuthStatus} = useAuth()
 
     const create = async (e) => {
-        console.log("create")
         e.preventDefault()
         try {
-            console.log(appwriteService.createUserAccount(formData))
             const userData = await appwriteService.createUserAccount(formData);
             if (userData) {
                 setAuthStatus(true)
@@ -57,7 +55,6 @@ const Signup = () => {
                     <input type="text" className="w-full px-3 py-2 border rounded-md" placeholder="Enter your E-mail"
                            name="Email"/>
                 </div>
-
                 <div className="mt-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
                     <input type="password" className="w-full px-3 py-2 border rounded-md"

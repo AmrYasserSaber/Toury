@@ -1,6 +1,7 @@
 "use client";
 import React, {useEffect, useState} from "react";
 import appwriteService from "@/appwrite/config";
+import conf from "@/conf/config";
 
 export default function PlanetProfile(params) {
     const [planetData, setPlanetData] = useState(null);
@@ -11,19 +12,20 @@ export default function PlanetProfile(params) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const collectionId = process.env.NEXT_PUBLIC_APPWRITE_PLANETS_ID;
-                const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+                const collectionId = conf.appwritePlanetsId;
+                const databaseId = conf.appwriteDatabaseId;
                 const data = await appwriteService.getDocument(databaseId, collectionId, params.params.id);
                 setPlanetData(data);
             } catch (error) {
                 setError(error);
             } finally {
-                setLoading(false);
+                setLoading(false); // Set loading to false when fetching is done
             }
         }
 
-        fetchData().then(setLoading(false));
-    }, [params.id]);
+        fetchData().then(r => r); // Just call fetchData directly
+    }, [params.params.id]);
+
 
     if (loading) {
         return <div>Loading...</div>;
@@ -38,7 +40,8 @@ export default function PlanetProfile(params) {
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <h1 className="text-3xl font-bold m-2">Profile</h1>
             <hr/>
-            <p className={"text-4xl"}>planet : {planetData}</p>
+            <script>console.log(planetData.name);</script>
+            <p className={"text-4xl"}>planet : {planetData.name}</p>
         </div>
     );
 }
