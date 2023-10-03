@@ -1,5 +1,5 @@
 import conf from "@/conf/config";
-import {Client, Account, ID, Databases} from 'appwrite'
+import {Client, Account, ID, Databases, Query} from 'appwrite'
 
 
 const appwriteClient = new Client()
@@ -111,6 +111,14 @@ export class AppwriteService {
             return await database.list();
         } catch (error) {
             console.log("getDatabase error: " + error)
+        }
+    }
+    async queryCollectionDocuments(collectionId,attribute,value) {
+        const queries =[Query.equal(attribute,value)]
+        try {
+            return await database.listDocuments(conf.appwriteDatabaseId,collectionId,queries)
+        } catch (error) {
+            console.log("getTrips error: " + error)
         }
     }
 }
