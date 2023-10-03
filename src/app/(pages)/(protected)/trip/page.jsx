@@ -35,7 +35,7 @@ const TripsPage = () => {
                         &lt;
                     </span>
                 </Link>
-                <span className="text-3xl font-bold">My Account</span>
+                <span className="text-3xl font-bold">My Trips</span>
             </h1>
             {loading ? <div className="w-full flex justify-center items-center"/> : <Trips trips={trips}/>}
         </div>
