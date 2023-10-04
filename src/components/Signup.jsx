@@ -18,10 +18,8 @@ const Signup = () => {
     const {setAuthStatus} = useAuth()
 
     const create = async (e) => {
-        console.log("create")
         e.preventDefault()
         try {
-            console.log(appwriteService.createUserAccount(formData))
             const userData = await appwriteService.createUserAccount(formData);
             if (userData) {
                 setAuthStatus(true)

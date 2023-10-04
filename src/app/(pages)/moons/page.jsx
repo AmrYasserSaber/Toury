@@ -6,20 +6,20 @@ import Planets from "@/components/Planets";
 import conf from "@/conf/config";
 import appwriteService from "@/appwrite/config";
 
-const PlanetPage = () => {
+const MoonPage = () => {
     const router = useRouter();
     const {authStatus} = useAuth();
-    const [planets, setPlanets] = React.useState([]);
+    const [moons, setMoons] = React.useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const collectionId = conf.appwritePlanetsId;
+                const collectionId = conf.appwriteMoonsId;
                 const databaseId = conf.appwriteDatabaseId;
                 const data = await appwriteService.getCollectionDocuments(databaseId, collectionId);
-                setPlanets(data);
+                setMoons(data);
             } catch (error) {
                 setError(error);
             } finally {
@@ -32,9 +32,9 @@ const PlanetPage = () => {
 
     return (
         <section className="px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-            <Planets planets={planets.documents}/>
+            <Planets planets={moons.documents}/>
         </section>
     )
 }
 
-export default PlanetPage;
+export default MoonPage;

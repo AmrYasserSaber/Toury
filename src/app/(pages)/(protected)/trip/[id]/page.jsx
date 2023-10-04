@@ -3,8 +3,8 @@ import React, {useEffect, useState} from "react";
 import appwriteService from "@/appwrite/config";
 import conf from "@/conf/config";
 
-export default function PlanetProfile(params) {
-    const [planetData, setPlanetData] = useState(null);
+export default function TripProfile(params) {
+    const [tripData, setTripData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -12,10 +12,10 @@ export default function PlanetProfile(params) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const collectionId = conf.appwritePlanetsId;
+                const collectionId = conf.appwriteTripsId;
                 const databaseId = conf.appwriteDatabaseId;
                 const data = await appwriteService.getDocument(databaseId, collectionId, params.params.id);
-                setPlanetData(data);
+                setTripData(data);
             } catch (error) {
                 setError(error);
             } finally {
@@ -41,7 +41,7 @@ export default function PlanetProfile(params) {
             <h1 className="text-3xl font-bold m-2">Profile</h1>
             <hr/>
             <script>console.log(planetData.name);</script>
-            <p className={"text-4xl"}>planet : {planetData.name}</p>
+            <p className={"text-4xl"}>trip : {tripData.name}</p>
         </div>
     );
 }
