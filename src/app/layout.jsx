@@ -5,7 +5,6 @@ const roboto = Roboto({ subsets: ['latin'], weight:['100', '300', '400', '500', 
 
 export const metadata = {
   title: 'Create next and appwrite app',
-  description: 'learning it on youtube',
 }
 
 export default function RootLayout({

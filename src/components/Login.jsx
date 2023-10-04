@@ -4,6 +4,10 @@ import useAuth from "@/context/useAuth";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
 import React, {useState} from "react";
+import Image from "next/image";
+import logo from "@/static/logo.svg";
+import google from "@/static/social/google.svg";
+import facebook from "@/static/social/facebook.svg";
 
 const Login = () => {
     const router = useRouter()
@@ -16,96 +20,84 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault()
+        const data = new FormData(e.target);
+        const formDataObj = {};
+        data.forEach((value, key) => (formDataObj[key] = value));
         try {
-            const session = await appwriteService.login(formData);
+            console.log(formData)
+            const session = await appwriteService.login(formDataObj);
             if (session) {
                 setAuthStatus(true)
                 router.push("/profile")
             }
-
-
         } catch (error) {
             setError(error.message)
         }
     }
 
     return (
-        <div className="flex items-center justify-center w-full">
-            <div className={`mx-auto w-full max-w-lg bg-gray-200/50 rounded-xl p-10`}>
-                <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[60px]">
-                        <img src="/favicon.ico" alt="Logo"/>
-                    </span>
+        <div className="bg-cover bg-center bg-fixed bg-no-repeat h-screen"
+              style={{backgroundImage: 'url("imgs/photo.png")'}}>
+
+        {/* <!-- first section --> */}
+        <div className="bg-[url('/register.jpg')] bg-cover min-h-screen flex items-center justify-center">
+            <form onSubmit={login} className="bg-white px-8 pt-2 pb-[52px] rounded-2xl shadow-lg max-w-[782px] max-h-[993] w-full h-full flex flex-col items-center">
+                <div className="text-center">
+                    <Image className="w-[160px] h-[160px]" src={logo} />
+                    <h2 className="text-[41px] text-black font-bold mt-[-32px]">Login</h2>
                 </div>
-                <h2 className="text-center text-2xl font-bold leading-tight text-black">
-                    Sign in to your account
-                </h2>
-                <p className="mt-2 text-center text-base text-gray-600">
-                    Don&apos;t have any account?&nbsp;
-                    <Link
-                        href="/signup"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
-                    >
-                        Sign Up
-                    </Link>
-                </p>
-                {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-                <form onSubmit={login} className="mt-8">
-                    <div className="space-y-5">
-                        <div>
-                            <label htmlFor="email" className="text-base font-medium text-gray-900">
-                                Email address
-                            </label>
-                            <div className="mt-2">
-                                <input
-                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                    type="email"
-                                    value={formData.email}
-                                    onChange={(e) =>
-                                        setFormData((prev) => ({...prev, email: e.target.value}))
-                                    }
-                                    placeholder="Email"
-                                    id="email"
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="text-base font-medium text-gray-900">
-                                    Password
-                                </label>
-                            </div>
-                            <div className="mt-2">
-                                <input
-                                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                    type="password"
-                                    placeholder="Password"
-                                    value={formData.password}
-                                    onChange={(e) =>
-                                        setFormData((prev) => ({
-                                            ...prev,
-                                            password: e.target.value,
-                                        }))
-                                    }
-                                    id="password"
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <button
-                                type="submit"
-                                className="inline-flex w-full items-center justify-center rounded-md bg-primary px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-primary/80"
-                            >
-                                Sign in
-                            </button>
+
+                <div className="mt-4 max-w-[415px] w-full">
+                    <label className="block text-gray-700 text-[29px]">Email</label>
+                    <input type="text" className="w-full px-3 py-2 mt-2.5 border-2 rounded-md h-[43px] text-black"
+                           name="email"/>
+                </div>
+
+                <div className="mt-4 max-w-[415px] w-full">
+                    <label className="block text-gray-700 text-[29px]">Password</label>
+                    <input type="password" className="w-full px-3 py-2 mt-2.5 border-2 rounded-md h-[43px] text-black" name="password"/>
+                </div>
+
+                <div className="mt-[51px]">
+                    <button type="submit" id="btnn"
+                            className="w-full bg-orange-500 text-white py-4 hover:bg-orange-800  transition-colors text-2xl rounded-[5px] lg:w-[415px]">
+                        Login
+                    </button>
+                </div>
+
+                <div className="mt-6 text-center w-full max-w-[415px] text-xl">
+                    <div className="relative">
+                        <div className="relative flex justify-between text-sm items-center">
+                            <div className="h-0.5 w-[176px] bg-project-gray"></div>
+                            <span className="px-2 bg-white text-gray-500">OR</span>
+                            <div className="h-0.5 w-[176px] bg-project-gray"></div>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+
+                <div className="mt-[52px] flex justify-center">
+                    <div className="mr-8">
+                        <div className="flex gap-[9px] w-[71px] text-project-gray flex-col items-center hover:cursor-pointer">
+                            <Image className="w-[50px] h-[50px]" src={google}/>
+                            <h6>Google</h6>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="flex gap-[9px] w-[71px] text-project-gray flex-col items-center hover:cursor-pointer">
+                            <Image className="w-[50px] h-[50px]" src={facebook}/>
+                            <h6>Facebook</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-6 text-center">
+                    <a href="#" className="text-blue-500 underline text-xl">I already have an account</a>
+                </div>
+            </form>
         </div>
-    );
+        {/* <!-- end section --> */}
+        </div>
+    )
 }
 
 

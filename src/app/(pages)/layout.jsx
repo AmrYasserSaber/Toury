@@ -43,7 +43,7 @@ const ProtectedLayout = ({
                             <Blog blur />
                         </div>
                     </div>
-                    {!(pathname && pathname ==="/signup") ? <Header /> : ''}
+                    {!(pathname && pathname ==="/signup" || pathname==="/login") ? <Header /> : ''}
                     <main>{children}</main>
                 </>
             )}
