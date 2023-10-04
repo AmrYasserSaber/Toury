@@ -76,9 +76,9 @@ export class AppwriteService {
     }
 
 
-    async createDocument(collectionId, data) {
+    async createDocument(databaseID,collectionId, data) {
         try {
-            return await database.createDocument(collectionId, data)
+            return await database.createDocument(databaseID,collectionId,ID.unique(), data)
         } catch (error) {
             console.log("createDocument error: " + error)
         }
@@ -119,6 +119,15 @@ export class AppwriteService {
             return await database.listDocuments(conf.appwriteDatabaseId,collectionId,queries)
         } catch (error) {
             console.log("getTrips error: " + error)
+        }
+    }
+
+    async filterTrip(tripCollectionId,takeoffDate,returnDate,cost,flightCompany){
+        const queries =[Query.equal("take-off_Date",takeoffDate),Query.equal("returnDate",returnDate),Query.equal("cost",cost),Query.equal("company",flightCompany)]
+        try {
+            return await database.listDocuments(conf.appwriteDatabaseId,tripCollectionId,queries)
+        } catch (error) {
+            console.log("filterTrips error: " + error)
         }
     }
 }
