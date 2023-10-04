@@ -94,7 +94,7 @@ export class AppwriteService {
 
     async deleteDocument(collectionId, documentId) {
         try {
-            return await database.deleteDocument(collectionId, documentId)
+            return await database.deleteDocument(conf.appwriteDatabaseId,collectionId, documentId)
         } catch (error) {
             console.log("deleteDocument error: " + error)
         }
