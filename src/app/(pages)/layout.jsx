@@ -4,11 +4,13 @@ import Blog from "@/components/Blog";
 import Header from "@/components/Header";
 import { AuthProvider } from "@/context/authContext";
 import React, { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation'
+ 
 
 const ProtectedLayout = ({
     children,
   }) => {
-
+    const pathname = usePathname()
     const [authStatus, setAuthStatus] = useState(false);
     const [loader, setLoader] = useState(true);
 
@@ -41,7 +43,7 @@ const ProtectedLayout = ({
                             <Blog blur />
                         </div>
                     </div>
-                    <Header />
+                    {!(pathname && pathname ==="/signup") ? <Header /> : ''}
                     <main>{children}</main>
                 </>
             )}
