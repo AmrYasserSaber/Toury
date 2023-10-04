@@ -42,7 +42,7 @@ const ProtectedLayout = ({
                         </div>
                     </div>
                     <Header />
-                    <main className="px-2 py-4">{children}</main>
+                    <main>{children}</main>
                 </>
             )}
         </AuthProvider>

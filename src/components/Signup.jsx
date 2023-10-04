@@ -33,41 +33,41 @@ const Signup = () => {
     }
 
     return (
-        <body className="bg-cover bg-center bg-fixed bg-no-repeat h-screen"
+        <div className="bg-cover bg-center bg-fixed bg-no-repeat h-screen"
               style={{backgroundImage: 'url("imgs/photo.png")'}}>
 
         {/* <!-- frist section --> */}
         <div className="bg-red-500 min-h-screen flex items-center justify-center">
 
-            <form className="bg-white p-8 rounded-lg shadow-lg">
+            <form className="bg-white p-8 rounded-lg shadow-lg max-w-[782px] max-h-[993] w-full h-full flex flex-col items-center">
                 <div className="text-center">
                     <img src="\imgs\Blue and Yellow Elegant Modern className={} Academy Logo (1) 1(1).png" width="160px"
                          alt="Logo"/>
-                    <h2 className="text-2xl font-semibold">Register</h2>
+                    <h2 className="text-[41px] text-black font-bold">Register</h2>
                 </div>
 
-                <div className="mt-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Full name</label>
-                    <input type="text" className="w-full px-3 py-2 border rounded-md" placeholder="Enter your Name"
+                <div className="max-w-[401px] w-full mt-9">
+                    <label className="block text-gray-700 text-[29px]">Full name</label>
+                    <input type="text" className="w-full px-3 py-2 mt-2.5 border-2 rounded-md h-[43px] text-black" placeholder="Enter your Name"
                            name="Name"/>
                 </div>
 
-                <div className="mt-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                    <input type="text" className="w-full px-3 py-2 border rounded-md" placeholder="Enter your E-mail"
+                <div className="mt-4 max-w-[401px] w-full">
+                    <label className="block text-gray-700 text-[29px]">Email</label>
+                    <input type="text" className="w-full px-3 py-2 mt-2.5 border-2 rounded-md h-[43px] text-black" placeholder="Enter your E-mail"
                            name="Email"/>
                 </div>
 
-                <div className="mt-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                    <input type="password" className="w-full px-3 py-2 border rounded-md"
+                <div className="mt-4 max-w-[401px] w-full">
+                    <label className="block text-gray-700 text-[29px]">Password</label>
+                    <input type="password" className="w-full px-3 py-2 mt-2.5 border-2 rounded-md h-[43px] text-black"
                            placeholder="Enter your password" name="password"/>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 max-w-[401px]">
                     <div className="flex items-center">
                         <input type="checkbox" name="Remember" id="remember" className="mr-2"/>
-                        <label htmlFor="remember" className="text-sm">Remember</label>
+                        <label htmlFor="remember" className="text-[29px]">Remember</label>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@ const Signup = () => {
             </form>
         </div>
         {/* <!-- end section --> */}
-        </body>
+        </div>
     )
 }
 
