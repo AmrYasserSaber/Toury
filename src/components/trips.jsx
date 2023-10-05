@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 
 const Trips = ({trips}) => {
     return (
-        console.log(trips),
             <div>
                 {trips && (trips.planets.length > 0 || trips.moons.length) ? (
                     <>
