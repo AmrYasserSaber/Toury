@@ -12,7 +12,7 @@ import next from "@/static/planets/next.svg";
 import 'swiper/css';
 import { useRef } from 'react';
 
-export default () => {
+const Carousel = () => {
     const swiperRef = useRef();
     return (
         <div className='relative h-[274px] w-full max-w-[1002px]'>
@@ -55,3 +55,5 @@ export default () => {
         </div>
     );
 };
+
+export default Carousel
