@@ -4,10 +4,10 @@ import useAuth from "@/context/useAuth";
 import React, {useEffect, useRef, useState} from "react";
 import LandingHero from "@/components/LandingHero";
 import LandingCarousel from "@/components/LandingCarousel";
-import planets from "@/components/Planets";
 import conf from "@/conf/config";
 import appwriteService from "@/appwrite/config";
 import Articles from "@/components/Articles";
+import StaticArticles from "@/components/StaticArticles";
 
 const Home = () => {
     const {authStatus} = useAuth();
@@ -44,6 +44,7 @@ const Home = () => {
         <>
             <LandingHero/>
             <LandingCarousel planets={planets.documents}/>
+            <StaticArticles/>
             <Articles />
         </>
     );
