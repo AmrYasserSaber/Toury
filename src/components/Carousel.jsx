@@ -32,19 +32,39 @@ const Carousel = (planets) => {
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
             >
-                {planets.planets.planets.map((planet, index) => (
-                    <SwiperSlide key={index}>
-                        <Image src={planet.photo} className='w-[274px] h-[274px] mr-10' width={2250}
-                               height={1390}/>
-                    </SwiperSlide>
-                ))}
+                {planets.planets.planets.map((planet, index) => {
+                    const base = "https://drive.google.com/uc?export=view&id=";
+                    const url = planet.thumbnail
+                    // Extract the ID from the URL
+                    const startIndex = url.indexOf("/d/") + 3;
+                    const endIndex = url.indexOf("/view");
+                    const id = url.substring(startIndex, endIndex);
+
+                    const result = base + id
+
+                    console.log(result);
+                    return (
+                        <SwiperSlide key={index}>
+                            <a href={`./planets/${planet.$id}`}>
+                                <Image src={result}
+                                       className='w-[274px] h-[274px] mr-10'
+                                       width={2250}
+                                       height={1390}/>
+                            </a>
+                        </SwiperSlide>
+                    )
+                })}
             </Swiper>
             <button className='w-[74px] h-[74px] bg-transparent absolute top-[40%] z-[999] right-0'
                     onClick={() => swiperRef.current?.slideNext()}><Image src={next} className='w-[74px] h-[74px]'/>
             </button>
         </div>
-    );
+    )
+        ;
 };
 
 Carousel.displayName = 'Carousel';
 export default Carousel
+
+
+
