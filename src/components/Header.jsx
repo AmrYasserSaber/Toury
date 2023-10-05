@@ -3,6 +3,9 @@ import useAuth from "@/context/useAuth";
 import Link from "next/link";
 import React from "react";
 import Logo from "./Logo";
+import logo from "../static/logo-cropped.svg";
+import { usePathname } from 'next/navigation'
+import Image from 'next/image';
 
 const menuItems = [
     {
@@ -14,47 +17,60 @@ const menuItems = [
         href: "#",
     },
     {
-        name: "Contact",
-        href: "#",
+        name: "News",
+        href: "/news",
+    },
+    {
+        name: "Contact us",
+        href: "/contact",
     },
 ];
 
 export default function Header() {
+    const pathname = usePathname()
     const { authStatus } = useAuth();
     return (
-        <div className="relative w-full bg-white py-2">
+        <div className="relative w-full bg-white py-2 pl-[80px]">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-                <div className="inline-flex items-center space-x-2">
+                <div className="inline-flex items-center space-x-2 mr-[95px]">
                     <Link href={"/"} className="inline-block w-full max-w-[150px]">
-                        <Logo />
+                        <Image src={logo} className="w-[48px] h-[48px]" />
                     </Link>
                 </div>
                 <div className="hidden grow items-start lg:flex">
-                    <ul className="ml-12 inline-flex space-x-8">
+                    <ul className="flex justify-between w-[552px]">
                         {menuItems.map((item) => (
                             <li key={item.name}>
-                                <Link
+                                {pathname && pathname === item.href ? <Link
                                     href={item.href}
-                                    className="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-primary"
+                                    className="inline-flex items-center text-2xl text-[#CCCCCC] hover:text-primary
+                                               border-b-[1px] border-project-orange text-project-orange"
                                 >
                                     {item.name}
-                                </Link>
+                                </Link>: <Link
+                                    href={item.href}
+                                    className="inline-flex items-center text-2xl text-[#CCCCCC] hover:text-primary"
+                                >
+                                    {item.name}
+                                </Link>}
                             </li>
                         ))}
                     </ul>
                 </div>
-                <div className="hidden space-x-2 lg:block">
+                <div className="hidden space-x-2 lg:flex gap-[21px]">
                     <Link
-                        href={authStatus ? "/profile" : "/signup"}
-                        className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        href={authStatus ? "/profile" : "/login"}
+                        className="flex justify-center items-center bg-project-orange py-[10px] transition-colors
+                                   text-2xl text-white rounded-[5px] w-[182px] hover:bg-orange-800"
                     >
-                        {authStatus ? "Profile" : "Sign up"}
+                        {authStatus ? "Profile" : "Login"}
                     </Link>
                     <Link
-                        href={authStatus ? "/logout" : "/login"}
-                        className="rounded-md border border-primary px-3 py-2 text-sm font-semibold text-primary shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        href={authStatus ? "/logout" : "/signup"}
+                        className="flex justify-center items-center bg-transparent border-2 text-project-orange transition-colors
+                                 border-project-orange py-[10px] text-2xl rounded-[5px] w-[182px] hover:border-orange-800 hover:text-orange-800"
                     >
-                        {authStatus ? "Logout" : "Log In"}
+                        {authStatus ? "Logout" : "Sign Up"}
                     </Link>
                 </div>
             </div>

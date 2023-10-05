@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { AuthProvider } from "@/context/authContext";
 import React, { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation'
+import Footer from "@/components/Footer";
  
 
 const ProtectedLayout = ({
@@ -45,6 +46,7 @@ const ProtectedLayout = ({
                     </div>
                     {!(pathname && pathname ==="/signup" || pathname==="/login") ? <Header /> : ''}
                     <main>{children}</main>
+                    <Footer />
                 </>
             )}
         </AuthProvider>

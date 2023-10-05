@@ -69,7 +69,8 @@ const Signup = () => {
 
                 <div className="mt-[51px]">
                     <button type="submit" id="btnn"
-                            className="w-full bg-orange-500 text-white py-4 hover:bg-orange-800  transition-colors text-2xl rounded-[5px] lg:w-[415px]">
+                            className="w-full bg-orange-500 text-white py-4 hover:bg-orange-800 
+                                       transition-colors text-2xl rounded-[5px] lg:w-[415px]">
                         Register
                     </button>
                 </div>
@@ -100,7 +101,7 @@ const Signup = () => {
                 </div>
 
                 <div className="mt-6 text-center">
-                    <a href="#" className="text-blue-500 underline text-xl">I already have an account</a>
+                    <Link href="/login" className="text-blue-500 underline text-xl">I already have an account</Link>
                 </div>
             </form>
         </div>
