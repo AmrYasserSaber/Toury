@@ -54,7 +54,10 @@ const secondList =
 
 
 export default function Footer() {
+    const pathname = usePathname()
+
     return (
+        pathname != "/signup" ?
         <>
             <div className="w-full pt-6 px-[123px] flex justify-between bg-[#121212]">
                 <Image src={logo} className="w-[152px] h-[152px]" />
@@ -105,5 +108,7 @@ export default function Footer() {
                 <h5 className="text-white text-2xl">© 2022 Toury. All Rights Reserved.</h5>
             </div>
         </>
+            :
+            <></>
     );
 }
