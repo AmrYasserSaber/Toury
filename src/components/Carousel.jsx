@@ -56,4 +56,5 @@ const Carousel = () => {
     );
 };
 
+Carousel.displayName = 'Carousel';
 export default Carousel
