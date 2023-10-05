@@ -20,7 +20,7 @@ let articles = [
 const Articles = ({title = "Articles"}) => {
     const swiperRef = useRef();
     return (
-        <div className="px-[128px] py-[66px] text-black mt-[128px] bg-[#CCCCCC] flex flex-col">
+        <div className="px-[128px] py-[66px] text-black mt-[128px] bg-[#CCCCCC] flex flex-col mb-[232px]">
             <h3 className="text-center text-[50px] text-black font-semibold">
                 {title}
             </h3>
