@@ -7,6 +7,7 @@ import LandingCarousel from "@/components/LandingCarousel";
 import planets from "@/components/Planets";
 import conf from "@/conf/config";
 import appwriteService from "@/appwrite/config";
+import Articles from "@/components/Articles";
 
 const Home = () => {
     const {authStatus} = useAuth();
@@ -43,6 +44,7 @@ const Home = () => {
         <>
             <LandingHero/>
             <LandingCarousel planets={planets.documents}/>
+            <Articles />
         </>
     );
 }
