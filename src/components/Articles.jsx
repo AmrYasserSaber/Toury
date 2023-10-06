@@ -36,7 +36,7 @@ const Articles = (home) => {
     const swiperRef = useRef();
     if(!articles|| !articles.documents){return(<></>)}
     return (
-        <div className="px-[128px] py-[66px] text-black mt-[128px] bg-[#CCCCCC] flex flex-col mb-[232px] w-full items-center">
+        <div id="articles" className="px-[128px] py-[66px] text-black mt-[128px] bg-[#CCCCCC] flex flex-col mb-[232px] w-full items-center">
             <h3 className="text-center text-[50px] text-black font-semibold max-w-[1185px]">
                 Articles
             </h3>

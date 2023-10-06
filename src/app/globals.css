@@ -24,3 +24,8 @@ body {
 .swiper-wrapper {
   align-items: center !important;
 }
+
+.swiper-slide-active {
+  margin-right: 85px;
+  margin-left: -51px;
+}

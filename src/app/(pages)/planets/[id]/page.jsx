@@ -64,8 +64,21 @@ export default function PlanetProfile(params) {
     return (
         <div className="flex flex-col items-center">
             <PlanetHero title={`${planetData.name} Planet`} image={fixImage(planetData.photo)} />
-            <h3 className="bg-black flex justify-center items-center text-white text-[50px] font-semibold h-[269px] w-full">No Known Moons</h3>
-            <script>console.log(planetData.name);</script>
+            {
+                planetData.moons.length > 0 ?
+                <div className="bg-black h-[269px] w-full flex flex-col items-center px-[273px] pt-[22px]">
+                    <p className="text-2xl text-project-gray">The most important moons</p>
+                    <div className="bg-black h-[269px] w-full flex items-center justify-evenly">
+                    {planetData.moons.map((moon) => 
+                        <div className="flex flex-col items-center justify-center">
+                            <Image src={moon.photo} width={122} height={122} />
+                            <p className="text-white font-semibold text-[29px]">{moon.name}</p>
+                        </div>
+                    )}
+                    </div>
+                </div>
+                 : <h3 className="bg-black flex justify-center items-center text-white text-[50px] font-semibold h-[269px] w-full">No Known Moons</h3>
+            }
             <div className="flex px-[128px] gap-16 mt-[84px]">
                 <div className="h-[376px] w-[285px] flex flex-col py-16 rounded-3xl gap-y-[50px] border items-center" style={{ boxShadow: "0px 0.25px 5px 0.25px rgba(0, 0, 0, 0.25)" }}>
                     <Link href="#overview" onClick={() => setActive("Overview")} className={active === "Overview" ? activeLink : inActiveLink} >Overview</Link>
@@ -86,9 +99,8 @@ export default function PlanetProfile(params) {
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div className="flex flex-col px-[128px] gap-16 w-full max-w-[1440px]">
+            <div className="flex flex-col px-[128px] gap-16 w-full max-w-[1440px]" id="content">
                     <h2 className="text-[50px] font-semibold text-black">Content</h2>
                     {planetData.planetContent[0].body.map((content, index) => {
                         let contentArray = content.split("|||")

@@ -15,7 +15,7 @@ const Carousel = (planets) => {
     return (
     <div className='relative h-[274px] w-full max-w-[1002px]'>
       <button className='w-[74px] h-[74px] bg-transparent absolute top-[40%] z-[999]' onClick={() => swiperRef.current?.slidePrev()}>
-        <img src={previous} className='w-[74px] h-[74px]' />
+        <Image src={previous} className='w-[74px] h-[74px]' />
       </button>
       <Swiper
         modules={[Virtual, Navigation, Pagination]}

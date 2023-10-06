@@ -6,39 +6,34 @@ import Image from "next/image";
 
 function Photos() {
     return (
-        <div>
+        <div className="my-[128px]">
             {/* Start paragraphs section */}
-            <div className="container mx-auto pt-5">
-                <div className="flex flex-wrap">
-                    <div className="w-full md:w-6/12">
-                        <Image className="w-[160px] h-[160px]" src={first}/>
-                    </div>
-                    <div className="w-full md:w-6/12 mt-5 md:mt-0">
-                        <h3 className="text-3xl font-semibold">
+            <div className="container mx-auto w-full">
+                <div className="flex flex-wrap w-full justify-between">
+                        <Image className="w-[585px] h-[551px]" src={first}/>
+                    <div className="w-full mt-5 md:mt-0 max-w-[598px]">
+                        <h3 className="text-[50px] font-semibold text-black leading-[60px] mb-4">
                             Find and learn about your destination
                         </h3>
-                        <p className="text-base">
+                        <p className="text-2xl text-black leading-[40.8px]">
                             Here you can find all you want about your destination and the
                             space in general. Space tourism has become easier and more
                             enjoyable. Sign up now and be a future traveler. Here you can
                             find all you want about your destination and the space in
                             general. Space tourism has become easier and more enjoyable.
                             Sign up now and be a future traveler.{" "}
-                            <span className="text-orange-500 hover:underline cursor-pointer">
-                Read More
-              </span>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div className="container mx-auto pt-5">
-                <div className="flex flex-wrap">
-                    <div className="w-full md:w-6/12 mt-5 md:mt-0">
-                        <h3 className="text-3xl font-semibold">
+            <div className="container mx-auto mt-[110px] w-full">
+                <div className="flex flex-wrap w-full justify-between">
+                    <div className="w-full  mt-5 md:mt-0 max-w-[598px]">
+                        <h3 className="text-[50px] font-semibold text-black leading-[60px] mb-4">
                             Be more aware about space and astronomy.
                         </h3>
-                        <p className="text-base">
+                        <p className="text-2xl text-black leading-[40.8px]">
                             Here you can find all you want about your destination and the
                             space in general. Space tourism has become easier and more
                             enjoyable. Sign up now and be a future traveler. Here you can
@@ -47,14 +42,9 @@ function Photos() {
                             Sign up now and be a future traveler. Here you can find all
                             you want about your destination and the space in general. The
                             space.{" "}
-                            <span className="text-orange-500 hover:underline cursor-pointer">
-                Read More
-              </span>
                         </p>
                     </div>
-                    <div className="w-full md:w-6/12">
-                        <Image className="w-[160px] h-[160px]" src={second}/>
-                    </div>
+                    <Image className="w-[585px] h-[551px]" src={second}/>
                 </div>
             </div>
             {/* End paragraphs section */}
