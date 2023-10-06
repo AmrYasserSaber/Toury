@@ -6,8 +6,6 @@ import PlanetHero from "@/components/PlanetHero";
 import Link from "next/link";
 import Image from "next/image";
 import Articles from "@/components/Articles";
-import ActivitiesTab from "@/components/ActivitiesTab";
-import Tabs from "@/components/Tabs";
 import FlightCard from "@/components/FlightCard";
 import ButtonCard from "@/components/ButtonCard";
 
@@ -67,7 +65,7 @@ export default function PlanetProfile(params) {
 
     return (
         <div className="flex flex-col items-center">
-            <PlanetHero title={`${planetData.name} Planet`} image={fixImage(planetData.photo)}/>
+            <PlanetHero title={`${planetData.name} Planet`} id={planetData.$id} image={fixImage(planetData.photo)}/>
             {
                 planetData.moons.length > 0 ?
                     <div className="bg-black h-[269px] w-full flex flex-col items-center px-[273px] pt-[22px]">
@@ -85,28 +83,36 @@ export default function PlanetProfile(params) {
                     <h3 className="bg-black flex justify-center items-center text-white text-[50px] font-semibold h-[269px] w-full">No
                         Known Moons</h3>
             }
+            <h1 className="text-black mt-20 mb-0 font-bold  text-custom-large">Available Flights</h1>
 
-            <div className="flex flex-col px-[128px] gap-16 w-full max-w-[1440px] mb-40" id="content">
-                <h2 className="text-[50px] font-semibold text-black mt-10">Flight</h2>
-                <div className="flex gap-[15px]">
-                    <FlightCard/>
-                    <ButtonCard text={"Complete"}/>
-                </div>
-                <h5 className="text-[35px] font-semibold text-black mt-10">Description</h5>
-                <div className="flex flex-col px-[128px] w-full max-w-[1440px] mr-0">
-                    <h8 className="text-[35px] font-semibold text-black mr-0">Space flight is the act of traveling
-                        beyond Earth's atmosphere and into outer space using
-                        specially designed spacecraft. It involves the use of rockets to overcome Earth's gravitational
-                        pull and reach the vacuum of space. Space flight serves various purposes, including scientific
-                        exploration, satellite deployment, space station maintenance, and human space travel. It has
-                        revolutionized our understanding of the universe and has led to technological advancements that
-                        benefit both space exploration and life on Earth.
-                    </h8>
+            <div className="flex px-[128px] gap-16  flex-wrap">
+                <br/>
+
+                <div className="flex flex-col gap-[15px]">
+                    <div className="flight-card">
+                        <p>Flight 1 Details</p>
+                    </div>
+                    <div className="flex gap-[15px]">
+                        <FlightCard/>
+                        <ButtonCard link={`/planetTrips/${params.params.id}`}/>
+                    </div>
+                    <div className="flight-card">
+                        {/* Flight 2 Details */}
+                        <p>Flight 2 Details</p>
+                    </div>
+                    <div className="flex gap-[15px]">
+                        <FlightCard/>
+                        <ButtonCard/>
+                    </div>
+                    <div className="flight-card">
+                        {/* Flight 3 Details */}
+                        <p>Flight 3 Details</p>
+                    </div>
                 </div>
 
             </div>
-            <Tabs/>
-            <div className="mb-14"></div>
         </div>
-    );
+    )
+        ;
 }
+

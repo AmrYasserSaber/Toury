@@ -7,7 +7,7 @@ const PlanetHero = ({ title = "Mercury Planet",id="651da6d96ae7f719bcaa", subtit
             <h1 className="font-semibold text-7xl mb-9">{title}</h1>
             <h6 className="text-xl mb-9">{subtitle}</h6>
             <Link
-                href={`/planetTrips/${id}`}
+                href={`/availableFlights/${id}`}
                 className="flex justify-center items-center bg-project-orange h-[100px] transition-colors
                                    text-[29px] text-white rounded-[5px] w-[250px] hover:bg-orange-800"
             >
