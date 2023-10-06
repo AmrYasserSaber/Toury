@@ -42,7 +42,6 @@ const Carousel = (planets) => {
 
                     const result = base + id
 
-                    console.log(result);
                     return (
                         <SwiperSlide key={index}>
                             <a href={`./planets/${planet.$id}`}>

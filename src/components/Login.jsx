@@ -24,7 +24,6 @@ const Login = () => {
         const formDataObj = {};
         data.forEach((value, key) => (formDataObj[key] = value));
         try {
-            console.log(formData)
             const session = await appwriteService.login(formDataObj);
             if (session) {
                 setAuthStatus(true)

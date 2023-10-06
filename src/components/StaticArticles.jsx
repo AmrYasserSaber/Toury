@@ -1,6 +1,6 @@
 import React from "react";
-import first from "../../public/first static article photo.png";
-import second from "../../public/second static article photo.png";
+import first from "../static/articles/first static article photo.png";
+import second from "../static/articles/second static article photo.png";
 import logo from "@/static/logo.svg";
 import Image from "next/image";
 
