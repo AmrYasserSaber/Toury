@@ -78,7 +78,7 @@ export default function PlanetProfile(params) {
                     <div className="flex w-full justify-between">
                         <div className="flex flex-col">
                             <p className="text-2xl text-[#808080]">Moons:</p>
-                            <p className="text-7xl text-project-orange flex items-center">{planetData.moons.length} <span className="text-2xl inline-block ml-5">known moons</span> </p>
+                            <p className="text-7xl text-project-orange flex items-center">{planetData.moons_number} <span className="text-2xl inline-block ml-5">known moons</span> </p>
                         </div>
                         <div className="flex flex-col">
                             <p className="text-2xl text-[#808080]">One year:</p>
