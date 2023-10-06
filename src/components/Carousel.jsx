@@ -31,20 +31,13 @@ const Carousel = (planets) => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         {planets.planets.planets.map((planet, index) => {
-          const base = "https://drive.google.com/uc?export=view&id=";
-          const url = planet.thumbnail;
-          // Extract the ID from the URL
-          const startIndex = url.indexOf("/d/") + 3;
-          const endIndex = url.indexOf("/view");
-          const id = url.substring(startIndex, endIndex);
-          const result = base + id;
 
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (
                 <a href={`./planets/${planet.$id}`}>
                   <Image
-                    src={result}
+                    src={planet.thumbnail}
                     className={isActive ? 'w-[274px] h-[274px] mr-10' : 'w-[150px] h-[150px] mr-10'}
                     width={2250}
                     height={1390}
