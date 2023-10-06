@@ -1,0 +1,548 @@
+{
+    "projectId": "65189b9a16c9e87b0632",
+    "projectName": "toury",
+    "databases": [
+        {
+            "$id": "6518a450f1060da07aae",
+            "name": "toury",
+            "$createdAt": "2023-09-30T22:42:24.988+00:00",
+            "$updatedAt": "2023-09-30T22:42:24.988+00:00",
+            "enabled": true
+        }
+    ],
+    "collections": [
+        {
+            "$id": "6518ab6b2e22c947d0dd",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "planets",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "moons",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518ab78707f99c75bfa",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "planets",
+                    "onDelete": "cascade",
+                    "side": "parent"
+                },
+                {
+                    "key": "planetContent",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b0ac3a95855a25b8",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "planets",
+                    "onDelete": "cascade",
+                    "side": "parent"
+                },
+                {
+                    "key": "planetDestinations",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b313ac3f6d20a4fd",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "planets",
+                    "onDelete": "cascade",
+                    "side": "parent"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "6518ab78707f99c75bfa",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "moons",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "planets",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518ab6b2e22c947d0dd",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "moons",
+                    "onDelete": "cascade",
+                    "side": "child"
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "moonContent",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b1f90e36e6701109",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "moons",
+                    "onDelete": "cascade",
+                    "side": "parent"
+                },
+                {
+                    "key": "moonDestinations",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b32578eeca74985d",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "moons",
+                    "onDelete": "cascade",
+                    "side": "parent"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "6518b0ac3a95855a25b8",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "planet_content",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "planets",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518ab6b2e22c947d0dd",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "planetContent",
+                    "onDelete": "cascade",
+                    "side": "child"
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "body",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 300,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "6518b1f90e36e6701109",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "moon_content",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "body",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 300,
+                    "default": null
+                },
+                {
+                    "key": "moons",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518ab78707f99c75bfa",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "moonContent",
+                    "onDelete": "cascade",
+                    "side": "child"
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "6518b313ac3f6d20a4fd",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "planet_destinations",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "planets",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518ab6b2e22c947d0dd",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "planetDestinations",
+                    "onDelete": "cascade",
+                    "side": "child"
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "plantDestinationContent",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b64e0570b19d5331",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "planetDestinations",
+                    "onDelete": "cascade",
+                    "side": "parent"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "6518b32578eeca74985d",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "moon_destinations",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "moons",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518ab78707f99c75bfa",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "moonDestinations",
+                    "onDelete": "cascade",
+                    "side": "child"
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "moonDestinationContent",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b5e008f76d2ec756",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "moonDestinations",
+                    "onDelete": "cascade",
+                    "side": "child"
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "6518b5e008f76d2ec756",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "moon_destination_content",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "moonDestinations",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b32578eeca74985d",
+                    "relationType": "manyToOne",
+                    "twoWay": true,
+                    "twoWayKey": "moonDestinationContent",
+                    "onDelete": "cascade",
+                    "side": "parent"
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "body",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 300,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "6518b64e0570b19d5331",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "plant_destination_content",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "planetDestinations",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b313ac3f6d20a4fd",
+                    "relationType": "oneToMany",
+                    "twoWay": true,
+                    "twoWayKey": "plantDestinationContent",
+                    "onDelete": "cascade",
+                    "side": "child"
+                },
+                {
+                    "key": "photo",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "name",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 64,
+                    "default": null
+                },
+                {
+                    "key": "body",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 300,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "651992061660c46d9510",
+            "$permissions": [],
+            "databaseId": "6518a450f1060da07aae",
+            "name": "trips",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "planetDestinations",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b313ac3f6d20a4fd",
+                    "relationType": "manyToMany",
+                    "twoWay": false,
+                    "twoWayKey": "651992061660c46d9510",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "moonDestinations",
+                    "type": "relationship",
+                    "status": "available",
+                    "error": "",
+                    "required": false,
+                    "array": false,
+                    "relatedCollection": "6518b32578eeca74985d",
+                    "relationType": "manyToMany",
+                    "twoWay": false,
+                    "twoWayKey": "651992061660c46d9510",
+                    "onDelete": "setNull",
+                    "side": "parent"
+                },
+                {
+                    "key": "user_id",
+                    "type": "string",
+                    "status": "available",
+                    "error": "",
+                    "required": true,
+                    "array": false,
+                    "size": 20,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        }
+    ]
+}
