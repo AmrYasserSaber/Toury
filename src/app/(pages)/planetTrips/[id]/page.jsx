@@ -67,7 +67,7 @@ export default function PlanetProfile(params) {
 
     return (
         <div className="flex flex-col items-center">
-            <PlanetHero title={`${planetData.name} Planet`} image={fixImage(planetData.photo)}/>
+            <PlanetHero title={`${planetData.name} Planet`} image={fixImage(planetData.photo)} active={false}/>
             {
                 planetData.moons.length > 0 ?
                     <div className="bg-black h-[269px] w-full flex flex-col items-center px-[273px] pt-[22px]">
