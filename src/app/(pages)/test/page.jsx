@@ -14,6 +14,8 @@ import HotelsTab from "@/components/HotelsTab";
 import ActivitiesTab from "@/components/ActivitiesTab";
 import Tabs from "@/components/Tabs";
 import PlanetHero from "@/components/PlanetHero";
+import FlightCard from "@/components/FlightCard";
+import ButtonCard from "@/components/ButtonCard";
 
 
 const Test = () => {
@@ -55,6 +57,12 @@ const Test = () => {
             <ActivitiesTab/>
             <HotelsTab />
             <Tabs />
+            <div className="flex gap-[15px]">
+                <FlightCard />
+                <ButtonCard />
+            </div>
+            
+
         </>
     );
 }
