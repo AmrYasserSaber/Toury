@@ -42,6 +42,7 @@ const Carousel = (planets) => {
                     width={2250}
                     height={1390}
                   />
+                  <p className='w-full text-[29px] font-semibold text-center hidden'>{planet.name}</p>
                 </a>
               )}
             </SwiperSlide>

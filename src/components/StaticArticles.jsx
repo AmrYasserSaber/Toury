@@ -8,7 +8,7 @@ function Photos() {
     return (
         <div className="my-[128px]">
             {/* Start paragraphs section */}
-            <div className="container mx-auto w-full">
+            <div className="container mx-auto w-full max-w-[1212px]">
                 <div className="flex flex-wrap w-full justify-between">
                         <Image className="w-[585px] h-[551px]" src={first}/>
                     <div className="w-full mt-5 md:mt-0 max-w-[598px]">
@@ -27,7 +27,7 @@ function Photos() {
                 </div>
             </div>
 
-            <div className="container mx-auto mt-[110px] w-full">
+            <div className="container mx-auto mt-[110px] w-full max-w-[1212px]">
                 <div className="flex flex-wrap w-full justify-between">
                     <div className="w-full  mt-5 md:mt-0 max-w-[598px]">
                         <h3 className="text-[50px] font-semibold text-black leading-[60px] mb-4">

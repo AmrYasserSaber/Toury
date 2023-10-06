@@ -29,3 +29,7 @@ body {
   margin-right: 85px;
   margin-left: -51px;
 }
+
+.swiper-slide-active  a p {
+  display: block;
+}
