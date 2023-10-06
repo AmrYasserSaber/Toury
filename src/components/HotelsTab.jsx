@@ -3,9 +3,9 @@ import React from "react";
 import HotelCard from "./HotelCard";
 
 let hotels = [
-    { image : "https://i.ibb.co/brNk15t/Rectangle-10.png", title : 'Dream hotel', link : 'https://www.google.com',price : 2000, days : 7, stars : 5 },
-    { image : "https://i.ibb.co/540Mngd/Rectangle-8.png", title : 'World\'s hotel', link : 'https://www.google.com',price : 2000, days : 7, stars : 3 },
-    { image : "https://i.ibb.co/brNk15t/Rectangle-10.png", title : 'Potato hotel', link : 'https://www.google.com',price : 2000, days : 7, stars : 2 }
+    { image : "https://i.ibb.co/0ydxpf7/Rectangle-44-2.png", title : 'Dream hotel', link : 'https://www.google.com',price : 2000, days : 7, stars : 5 },
+    { image : "https://i.ibb.co/x7zx1YN/Rectangle-44.png", title : 'World\'s hotel', link : 'https://www.google.com',price : 2000, days : 7, stars : 3 },
+    { image : "https://i.ibb.co/fHYSgbn/Rectangle-44-1.png", title : 'Potato hotel', link : 'https://www.google.com',price : 2000, days : 7, stars : 2 }
 ]
 
 const HotelsTab = ({items = hotels}) => {
