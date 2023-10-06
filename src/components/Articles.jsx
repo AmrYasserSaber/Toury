@@ -36,11 +36,11 @@ const Articles = (home) => {
     const swiperRef = useRef();
     if(!articles|| !articles.documents){return(<></>)}
     return (
-        <div className="px-[128px] py-[66px] text-black mt-[128px] bg-[#CCCCCC] flex flex-col mb-[232px]">
-            <h3 className="text-center text-[50px] text-black font-semibold">
+        <div className="px-[128px] py-[66px] text-black mt-[128px] bg-[#CCCCCC] flex flex-col mb-[232px] w-full items-center">
+            <h3 className="text-center text-[50px] text-black font-semibold max-w-[1185px]">
                 Articles
             </h3>
-            <div className="flex w-[124px] justify-between mb-9 align self-end">
+            <div className="flex w-[124px] justify-between mb-9 align self-end max-w-[1185px]">
                 <button className='w-[36.64px] h-[36.64px]'
                         onClick={() => swiperRef.current?.slidePrev()}><Image src={previous} className='w-full h-full'/>
                 </button>
@@ -49,7 +49,7 @@ const Articles = (home) => {
                 </button>
 
             </div>
-            <div className="h-[521px] mb-auto">
+            <div className="h-[521px] mb-auto max-w-[1185px]">
                 <Swiper
                     modules={[Virtual, Navigation, Pagination]}
                     spaceBetween={15}

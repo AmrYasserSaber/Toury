@@ -13,6 +13,7 @@ import HotelCard from "@/components/HotelCard";
 import HotelsTab from "@/components/HotelsTab";
 import ActivitiesTab from "@/components/ActivitiesTab";
 import Tabs from "@/components/Tabs";
+import PlanetHero from "@/components/PlanetHero";
 
 
 const Test = () => {
@@ -49,8 +50,8 @@ const Test = () => {
     return (
         <>
             <LandingHero/>
+            <PlanetHero />
             <LandingCarousel planets={planets.documents}/>
-            <Articles />
             <ActivitiesTab/>
             <HotelsTab />
             <Tabs />
