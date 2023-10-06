@@ -59,7 +59,7 @@ export default function Header() {
                 </div>
                 <div className="hidden space-x-2 lg:flex gap-[21px]">
                     <Link
-                        href={authStatus ? "/profile" : "/login"}
+                        href={authStatus ? "/" : "/login"}
                         className="flex justify-center items-center bg-project-orange py-[10px] transition-colors
                                    text-2xl text-white rounded-[5px] w-[182px] hover:bg-orange-800"
                     >
