@@ -30,7 +30,7 @@ const Signup = () => {
             const userData = await appwriteService.createUserAccount(formDataObj);
             if (userData) {
                 setAuthStatus(true)
-                router.push("/profile")
+                router.push("/")
             }
         } catch (error) {
             setError(error.message)
