@@ -3,8 +3,6 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Virtual, Navigation, Pagination} from 'swiper/modules';
 
 import Image from "next/image";
-import earth from "@/static/planets/earth.png";
-import mars from "@/static/planets/mars.png";
 import previous from "@/static/planets/previous.svg";
 import next from "@/static/planets/next.svg";
 
@@ -15,51 +13,53 @@ import {useRef} from 'react';
 const Carousel = (planets) => {
     const swiperRef = useRef();
     return (
-        <div className='relative h-[274px] w-full max-w-[1002px]'>
-            <button className='w-[74px] h-[74px] bg-transparent absolute top-[40%] z-[999]'
-                    onClick={() => swiperRef.current?.slidePrev()}><Image src={previous} className='w-[74px] h-[74px]'/>
-            </button>
-            <Swiper
-                modules={[Virtual, Navigation, Pagination]}
-                style={{paddingLeft: "120px"}}
-                slidesPerView={3}
-                centeredSlides={true}
-                navigation={true}
-                initialSlide={1}
-                onBeforeInit={(swiper) => {
-                    swiperRef.current = swiper;
-                }}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-            >
-                {planets.planets.planets.map((planet, index) => {
-                    const base = "https://drive.google.com/uc?export=view&id=";
-                    const url = planet.thumbnail
-                    // Extract the ID from the URL
-                    const startIndex = url.indexOf("/d/") + 3;
-                    const endIndex = url.indexOf("/view");
-                    const id = url.substring(startIndex, endIndex);
+    <div className='relative h-[274px] w-full max-w-[1002px]'>
+      <button className='w-[74px] h-[74px] bg-transparent absolute top-[40%] z-[999]' onClick={() => swiperRef.current?.slidePrev()}>
+        <Image src={previous} className='w-[74px] h-[74px]' />
+      </button>
+      <Swiper
+        modules={[Virtual, Navigation, Pagination]}
+        style={{ paddingLeft: "120px" }}
+        slidesPerView={3}
+        centeredSlides={true}
+        navigation={true}
+        initialSlide={1}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        {planets.planets.planets.map((planet, index) => {
+          const base = "https://drive.google.com/uc?export=view&id=";
+          const url = planet.thumbnail;
+          // Extract the ID from the URL
+          const startIndex = url.indexOf("/d/") + 3;
+          const endIndex = url.indexOf("/view");
+          const id = url.substring(startIndex, endIndex);
+          const result = base + id;
 
-                    const result = base + id
-
-                    return (
-                        <SwiperSlide key={index}>
-                            <a href={`./planets/${planet.$id}`}>
-                                <Image src={result}
-                                       className='w-[274px] h-[274px] mr-10'
-                                       width={2250}
-                                       height={1390}/>
-                            </a>
-                        </SwiperSlide>
-                    )
-                })}
-            </Swiper>
-            <button className='w-[74px] h-[74px] bg-transparent absolute top-[40%] z-[999] right-0'
-                    onClick={() => swiperRef.current?.slideNext()}><Image src={next} className='w-[74px] h-[74px]'/>
-            </button>
-        </div>
-    )
-        ;
+          return (
+            <SwiperSlide key={index}>
+              {({ isActive }) => (
+                <a href={`./planets/${planet.$id}`}>
+                  <Image
+                    src={result}
+                    className={isActive ? 'w-[274px] h-[274px] mr-10' : 'w-[150px] h-[150px] mr-10'}
+                    width={2250}
+                    height={1390}
+                  />
+                </a>
+              )}
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+      <button className='w-[74px] h-[74px] bg-transparent absolute top-[40%] z-[999] right-0' onClick={() => swiperRef.current?.slideNext()}>
+        <Image src={next} className='w-[74px] h-[74px]' />
+      </button>
+    </div>
+  );
 };
 
 Carousel.displayName = 'Carousel';
