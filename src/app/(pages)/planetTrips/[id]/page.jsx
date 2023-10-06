@@ -6,6 +6,8 @@ import PlanetHero from "@/components/PlanetHero";
 import Link from "next/link";
 import Image from "next/image";
 import Articles from "@/components/Articles";
+import ActivitiesTab from "@/components/ActivitiesTab";
+import Tabs from "@/components/Tabs";
 
 const activeLink = "text-2xl text-black";
 const inActiveLink = "text-2xl text-[#969696]"
@@ -63,13 +65,13 @@ export default function PlanetProfile(params) {
 
     return (
         <div className="flex flex-col items-center">
-            <PlanetHero title={`${planetData.name} Planet`} id={planetData.$id} image={fixImage(planetData.photo)} />
+            <PlanetHero title={`${planetData.name} Planet`} image={fixImage(planetData.photo)} />
             {
                 planetData.moons.length > 0 ?
                 <div className="bg-black h-[269px] w-full flex flex-col items-center px-[273px] pt-[22px]">
                     <p className="text-2xl text-project-gray">The most important moons</p>
                     <div className="bg-black h-[269px] w-full flex items-center justify-evenly">
-                    {planetData.moons.map((moon) => 
+                    {planetData.moons.map((moon) =>
                         <div className="flex flex-col items-center justify-center">
                             <Image src={moon.photo} width={122} height={122} />
                             <p className="text-white font-semibold text-[29px]">{moon.name}</p>
@@ -100,47 +102,8 @@ export default function PlanetProfile(params) {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col px-[128px] gap-16 w-full max-w-[1440px]" id="content">
-                    <h2 className="text-[50px] font-semibold text-black">Content</h2>
-                    {planetData.planetContent[0].body.map((content, index) => {
-                        let contentArray = content.split("|||")
-                        let title = contentArray[0]
-                        let unorderedContent = contentArray.slice(1, contentArray.length - 1);
-                        if (index === 1) {
-                            return (
-                                <>
-                                <p className="text-2xl text-black">
-                                    {`${index+1}. ${title}`}
-                                    <ul className=" list-disc pl-9">{unorderedContent.map((i) => <li>{i}</li>)}</ul>
-                                </p>
-                                <iframe width="100%" height="561" className="rounded-3xl"
-                                src={fixVideo(planetData.planetContent[0].video)}>
-                                </iframe>
-                                </>
-                            )
-                        } else if (index !== planetData.planetContent[0].body.length - 1) {
-                            return (<p className="text-2xl text-black">
-                            {`${index+1}. ${title}`}
-                            <ul className=" list-disc pl-9">{unorderedContent.map((i) => <li>{i}</li>)}</ul>
-                    </p>)
-                        } else {
-                            return (
-                                <div className="flex gap-6">
-                                    <Image width={585} height={540} src={planetData.planetContent[0].photo[0]} className={photoClass} />
-                                    <div className="text-black">
-                                        <h4 className="text-[41px] text-black font-semibold mb-12">{title}</h4>
-                                        <ul className=" list-disc pl-6">{unorderedContent.map((i) => <li className="leading-9 text-2xl">{i}</li>)}</ul>
-                                    </div>
-                                </div>
-                            )
-                        }
-                    })}
-                    <div className="flex gap-2.5 mt-[100px] mb-[247px]">
-                        {planetData.planetContent[0].photo.slice(1).map((i) => <Image width={587} height={435} src={i} className={photoClass} />)}
-                    </div>
-            </div>
-            <div className="h-[696px] w-full" style={{background: `url(${fixImage(planetData.footerPhoto)})`,backgroundSize:"cover"}}></div>
-            <Articles />
+            <Tabs/>
+            <div className="mb-14"></div>
         </div>
     );
 }
